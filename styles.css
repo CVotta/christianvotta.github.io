@@ -6,8 +6,8 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: #f5f5f5;
-    color: #333;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 .header {
@@ -42,10 +42,18 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 1.5rem;
+    grid-auto-flow: dense; /* <--- AGREGA ESTO (ayuda a rellenar huecos visuales) */
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 .producto-card {
-    background: white;
+    background: #111;
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -60,7 +68,7 @@ body {
 .producto-card h3 {
     font-size: 1.125rem;
     margin-bottom: 0.5rem;
-    color: #1f2937;
+    color: #ffffff;
 }
 
 .producto-card .descripcion {
@@ -76,7 +84,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.btn {
+.btn, button {
     background-color: #059669;
     color: white;
     border: none;
@@ -104,7 +112,7 @@ body {
 }
 
 .carrito-container {
-    background: white;
+    background: #111;
     border-radius: 8px;
     padding: 1.5rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -137,14 +145,14 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #f9fafb;
+    background-color: #424242;
     border-radius: 6px;
 }
 
 .carrito-item-info h4 {
     font-size: 0.875rem;
     margin-bottom: 0.25rem;
-    color: #1f2937;
+    color: #ffffff;
 }
 
 .carrito-item-info .item-precio {
@@ -214,6 +222,50 @@ body {
 
 .carrito-total-precio {
     color: #059669;
+}
+
+
+label, input, textarea, button {
+    display: block;
+    width: 100%;
+}
+
+input, textarea, button {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+label, input, textarea {
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporción 16:9 de YouTube */
+    height: 0;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Clase para expandir la tarjeta a 2 columnas */
+.span-2 {
+    grid-column: span 2;
+}
+
+/* Modificación para móviles: en celular vuelve a tamaño normal */
+@media (max-width: 768px) {
+    .span-2 {
+        grid-column: span 1;
+    }
 }
 
 @media (max-width: 768px) {

@@ -2,64 +2,110 @@
 const productos = [
     {
         id: 1,
-        nombre: 'Paracetamol 500mg',
-        descripcion: 'Analgésico y antipirético - 20 tabletas',
-        precio: 5.99
+        nombre: 'Actron 600mg',
+        descripcion: 'Ibuprofeno 600mg - Antiinflamatorio - 30 cápsulas',
+        precio: 8.50,
+        video: 'https://youtu.be/3Q_5FCKOXXU?si=DK3gx6WxE3kdoU-D',
     },
     {
         id: 2,
-        nombre: 'Ibuprofeno 400mg',
-        descripcion: 'Antiinflamatorio - 30 cápsulas',
-        precio: 8.50
+        nombre: 'Tafirol 500mg',
+        descripcion: 'Paracetamol 500mg - Analgésico y antipirético - 20 tabletas',
+        precio: 5.99,
+        imagen: 'Img/Tafirol.jpg',  
     },
     {
         id: 3,
-        nombre: 'Vitamina C 1000mg',
-        descripcion: 'Suplemento vitamínico - 60 tabletas',
-        precio: 12.99
+        nombre: 'Redoxon 1000mg',
+        descripcion: 'Vitamina C 1000mg - Suplemento vitamínico - 60 tabletas',
+        precio: 12.99,
+        imagen: 'Img/Redoxon.jpg',
     },
     {
         id: 4,
-        nombre: 'Jarabe para la Tos',
-        descripcion: 'Expectorante natural - 120ml',
-        precio: 7.25
+        nombre: 'Bisolvon Jarabe',
+        descripcion: 'Jarabe para la tos - Expectorante natural - 120ml',
+        precio: 7.25,
+        imagen: 'Img/Bisolvon.jpg',
     },
     {
         id: 5,
-        nombre: 'Alcohol en Gel',
-        descripcion: 'Desinfectante de manos - 250ml',
-        precio: 4.50
+        nombre: 'Bialcohol Gel',
+        descripcion: 'Alcohol en Gel - Desinfectante de manos - 250ml',
+        precio: 4.50,
+        imagen: 'Img/Bialcohol.jpg',
     },
     {
         id: 6,
         nombre: 'Termómetro Digital',
         descripcion: 'Medición rápida y precisa',
-        precio: 15.99
+        precio: 15.99,
+        imagen: 'Img/Termometro.jpg',
     },
     {
         id: 7,
-        nombre: 'Vendas Elásticas',
-        descripcion: 'Pack de 3 unidades - 10cm x 4.5m',
-        precio: 6.75
+        nombre: 'Rango',
+        descripcion: 'Vendas Elasticas - Pack de 3 unidades - 10cm x 4.5m',
+        precio: 6.75,
+        imagen: 'Img/Rango.jpg',
     },
     {
         id: 8,
-        nombre: 'Suero Fisiológico',
-        descripcion: 'Solución salina - 500ml',
-        precio: 3.99
+        nombre: 'Betafar Solución Salina',
+        descripcion: 'Suero Fisiologico - Solución salina - 500ml',
+        precio: 3.99,
+        imagen: 'Img/Betafar.jpg',
     },
     {
         id: 9,
-        nombre: 'Antiácido',
-        descripcion: 'Alivio de acidez estomacal - 40 tabletas',
-        precio: 9.99
+        nombre: 'Hepatalgina',
+        descripcion: 'Antiacido - Alivio de acidez estomacal - 40 tabletas',
+        precio: 9.99,
+        imagen: 'Img/Hepatalgina.jpg',
     },
     {
         id: 10,
-        nombre: 'Crema Antiséptica',
-        descripcion: 'Cuidado de heridas menores - 30g',
-        precio: 5.49
-    }
+        nombre: 'Adermicina',
+        descripcion: 'Crema Anticeptica - Cuidado de heridas menores - 30g',
+        precio: 5.49,
+        imagen: 'Img/Adermicina.jpg',
+    },
+    {
+        id: 11,
+        nombre: 'Nasalmer Spray',
+        descripcion: 'Spray Nasal - Alivio de congestión nasal - 15ml',
+        precio: 6.89,
+        imagen: 'Img/Nasalmer.jpg',
+    },
+    {
+        id: 12,
+        nombre: 'Supradyn Energía',
+        descripcion: 'Multivitamínico - Suplemento diario - 30 tabletas',
+        precio: 14.99,
+        imagen: 'Img/Supradyn.jpg',
+    },
+    {
+        id: 13,
+        nombre: 'Dolex Forte',
+        descripcion: 'Analgésico - Alivio rápido del dolor - 20 tabletas',
+        precio: 7.49,
+        imagen: 'Img/Dolex.jpg',
+    },
+    {
+        id: 14,
+        nombre: 'Curitas Antibacterial',
+        descripcion: 'Curitas con Antibacterial - Pack de 20 unidades',
+        precio: 4.25,
+        imagen: 'Img/Curitas.jpg',
+    },
+    {
+        id: 15,
+        nombre: 'Vick Vaporub',
+        descripcion: 'Ungüento para el alivio de la congestión - 50g',
+        precio: 5.75,
+        imagen: 'Img/VickVaporub.jpg',
+    },
+
 ];
 
 // Carrito de compras
@@ -68,16 +114,34 @@ let carrito = [];
 // Renderizar productos
 function renderizarProductos() {
     const grid = document.getElementById('productosGrid');
-    grid.innerHTML = productos.map(producto => `
-                <div class="producto-card">
-                    <h3>${producto.nombre}</h3>
-                    <p class="descripcion">${producto.descripcion}</p>
-                    <p class="precio">$${producto.precio.toFixed(2)}</p>
-                    <button class="btn" onclick="agregarAlCarrito(${producto.id})">
-                        Agregar al Carrito
-                    </button>
-                </div>
-            `).join('');
+    
+    grid.innerHTML = productos.map(producto => {
+        // Verificamos si es Actron (ID 1)
+        const esActron = producto.id === 1;
+        
+        // Si es Actron, agregamos la clase 'span-2', si no, nada.
+        const clasesCard = esActron ? 'producto-card span-2' : 'producto-card';
+
+        return `
+        <div class="${clasesCard}">
+            
+            ${esActron 
+                ? `<div class="video-container">
+                     <iframe src="${producto.video}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                   </div>`
+                : `<img src="${producto.imagen}" alt="${producto.nombre}" class="producto-imagen">`
+            }
+
+            <h3>${producto.nombre}</h3>
+            <p class="descripcion">${producto.descripcion}</p>
+            <p class="precio">$${producto.precio.toFixed(2)}</p>
+
+            <button class="btn" onclick="agregarAlCarrito(${producto.id})">
+                Agregar al Carrito
+            </button>
+        </div>
+        `;
+    }).join('');
 }
 
 // Agregar producto al carrito
