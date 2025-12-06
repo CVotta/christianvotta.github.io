@@ -1,0 +1,283 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.header {
+    background-color: #059669;
+    color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 2rem;
+}
+
+.productos-section h2 {
+    margin-bottom: 1.5rem;
+    color: #059669;
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    grid-auto-flow: dense; /* <--- AGREGA ESTO (ayuda a rellenar huecos visuales) */
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.producto-card {
+    background: #111;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.producto-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.producto-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.producto-card .descripcion {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin-bottom: 1rem;
+}
+
+.producto-card .precio {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #059669;
+    margin-bottom: 1rem;
+}
+
+.btn, button {
+    background-color: #059669;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    background-color: #047857;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.carrito-section {
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+}
+
+.carrito-container {
+    background: #111;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carrito-container h2 {
+    color: #059669;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.carrito-vacio {
+    color: #6b7280;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.875rem;
+}
+
+.carrito-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #424242;
+    border-radius: 6px;
+}
+
+.carrito-item-info h4 {
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+    color: #ffffff;
+}
+
+.carrito-item-info .item-precio {
+    font-size: 0.875rem;
+    color: #059669;
+    font-weight: 600;
+}
+
+.carrito-item-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.carrito-item-cantidad span {
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+.btn-cantidad {
+    background-color: #e5e7eb;
+    color: #374151;
+    border: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.btn-cantidad:hover {
+    background-color: #d1d5db;
+}
+
+.btn-remover {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.btn-remover:hover {
+    background-color: #dc2626;
+}
+
+.carrito-total {
+    border-top: 2px solid #e5e7eb;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.carrito-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #1f2937;
+}
+
+.carrito-total-precio {
+    color: #059669;
+}
+
+
+label, input, textarea, button {
+    display: block;
+    width: 100%;
+}
+
+input, textarea, button {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+label, input, textarea {
+    margin-bottom: 16px;
+    font-weight: bold;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Proporción 16:9 de YouTube */
+    height: 0;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Clase para expandir la tarjeta a 2 columnas */
+.span-2 {
+    grid-column: span 2;
+}
+
+/* Modificación para móviles: en celular vuelve a tamaño normal */
+@media (max-width: 768px) {
+    .span-2 {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .carrito-section {
+        position: static;
+    }
+
+    .productos-grid {
+        grid-template-columns: 1fr;
+    }
+}
